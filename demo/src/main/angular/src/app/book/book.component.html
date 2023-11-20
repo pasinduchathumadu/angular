@@ -1,0 +1,75 @@
+<div>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Book Name</th>
+      <th scope="col">Book Author</th>
+      <th scope="col">Book Price</th>
+      <th scope="col">Book Category</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of books">
+      <td>{{item.bookName}}</td>
+      <td>{{item.author}}</td>
+      <td>{{item.price}}</td>
+      <td>{{item.category}}</td>
+      <td>
+        <button (click)="removeUser(item.id)" type="button" class="btn btn-danger">Remove Book</button>
+      </td>
+      <td>
+        <button (click)="onupdate(item.id)" type="button" class="btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop">
+          Update Book
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="last">
+    <h1>Total Count of the Books : {{totalCount}}</h1>
+  </div>
+  <!-- Button trigger modal -->
+
+
+  <ng-container *ngIf="isOpen">
+    <div class="modal fade show" tabindex="-1" role="dialog" style="display: block;">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title">Update The Price</h2>
+            <button type="button" class="close" (click)="closeModal()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="newPrice1" id="newPrice" class="form-control" name="newPrice" type="number"
+                   placeholder="New book Price"/>
+          </div>
+          <ng-container *ngIf="errorMessage">
+            <div ID="alert"  role="alert">
+              {{errorMessage}}
+            </div>
+          </ng-container>
+
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
+
+            <button (click)="onSave()" type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+
+</div>
+
+
+
+
+
+

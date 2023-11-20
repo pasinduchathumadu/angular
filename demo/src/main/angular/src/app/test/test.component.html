@@ -1,0 +1,38 @@
+<!-- test.component.html -->
+<div class="form1">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Book Name</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" name="bookname" [(ngModel)]="bookname" aria-describedby="emailHelp" placeholder="Enter Book Name">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputPassword1">Book Author</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" name="author" [(ngModel)]="author" placeholder="Author">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Book Category</label>
+        <select class="form-select" aria-label="Default select example" [(ngModel)]="value">
+            <option selected>Open this select menu</option>
+            <option *ngFor="let book of postedArray" [value]="book">{{book}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Book Price</label>
+        <input type="number" class="form-control" id="exampleInputPassword2" name="price" [(ngModel)]="price" placeholder="Price">
+    </div>
+
+    <button type="button" class="btn btn-primary  custom-button" (click)="onSubmit()">Submit</button>
+  <ng-container *ngIf="load">
+    <ng-container *ngIf="!setval; else success">
+      <div class="alert alert-danger" role="alert">
+        {{errorMessage}}
+      </div>
+    </ng-container>
+    <ng-template #success >
+      <div class="alert alert-success" role="alert">
+        {{errorMessage}}
+      </div>
+    </ng-template>
+  </ng-container>
+
+</div>

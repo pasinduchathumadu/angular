@@ -1,0 +1,17 @@
+.first{
+  margin: 2% 2% 2% 8%;
+  display: flex;
+  justify-content: center;
+
+}
+.input-group{
+  width: 25%;
+  margin-left: 2%;
+}
+#but1{
+  margin-left: 1%;
+}
+.table{
+  margin-left: 2%;
+  margin-right: 2%;
+}
